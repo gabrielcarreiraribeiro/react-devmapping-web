@@ -27,7 +27,7 @@ function DevForm({ onSubmit, dev }) {
         )
     }, [])
 
-    useEffect(() =>{
+    useEffect(() => {
         setGitHubUsername(dev.github_username)
         setTechs(dev.techs)
     }, [dev])
@@ -54,7 +54,7 @@ function DevForm({ onSubmit, dev }) {
                     name="github_username"
                     id="github_username"
                     required
-                    value={github_username}
+                    value={github_username || ""}
                     onChange={e => setGitHubUsername(e.target.value)} />
             </div>
 
@@ -64,7 +64,7 @@ function DevForm({ onSubmit, dev }) {
                     name="techs"
                     id="techs"
                     required
-                    value={techs}
+                    value={techs || ""}
                     onChange={e => setTechs(e.target.value)} />
             </div>
 
@@ -77,7 +77,7 @@ function DevForm({ onSubmit, dev }) {
                         name="latitude"
                         id="latitude"
                         required
-                        value={latitude}
+                        value={latitude || ""}
                         onChange={e => setLatitude(e.target.value)} />
                 </div>
 
@@ -88,7 +88,7 @@ function DevForm({ onSubmit, dev }) {
                         name="longitude"
                         id="longitude"
                         required
-                        value={longitude}
+                        value={longitude || ""}
                         onChange={e => setLongitude(e.target.value)} />
                 </div>
 
