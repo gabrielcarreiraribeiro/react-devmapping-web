@@ -1,0 +1,72 @@
+li.dev-item {
+  background: #fff;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.user-data {
+  display: flex;
+}
+
+li.dev-item header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+}
+
+.user-info {
+  margin-left: 10px;
+}
+
+li.dev-item p {
+  color: #666;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 20px 0 10px 0;
+}
+
+li.dev-item a {
+  color: #8e4dff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+li.dev-item a:hover {
+  color: #8e4dff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.user-info strong {
+  display: block;
+  font-size: 16px;
+  color: #333;
+}
+
+.user-info span {
+  font-size: 13px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.action-button {
+  display: grid;
+}
+
+.action-button img {
+  width: 25px;
+  height: auto;
+  transition: 0.1s;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.action-button img:hover {
+  opacity: 0.7;
+}
