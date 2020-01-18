@@ -30,20 +30,27 @@ function Home() {
         const response = await api.get('/devs')
         setDevs(response.data)
     }
-
+    /**
+     * Utilizamos "useEffect" sempre que queremos realizar alguma ação quando o componente
+     * é montado ou quando um determinado atributo que colocamos sobre observação é alterado.
+     *
+     * No primeiro parêmetro, colocamos a ação a ser realizada e no segundo, colocamos o atributo
+     * que irá ficar sobre observação.
+     */
     useEffect(() => {
         loadDevs()
     }, [])
 
+    /**
+     * Função responsável por adicionar um novo Dev na base e, caso esse dev já exista,
+     * simplesmente atualizá-lo
+     */
     async function handlerAddOrUpdateDev(data) {
 
         try {
-            console.log("Dev:")
-            console.log(data.github_username)
             const response = await api.get(`/searchDevs/${data.github_username}`)
             const update = !!response.data
-            console.log("Retorno do update")
-            console.log(update)
+
             update ? await api.put('/devs', data) : await api.post('/devs', data)
 
         } catch (e) {
@@ -53,6 +60,7 @@ function Home() {
         loadDevs()
     }
 
+    // Deletar Dev
     async function handlerDeleteDev(github_username) {
         try {
             await api.delete(`/devs/${github_username}`)
@@ -62,17 +70,10 @@ function Home() {
         loadDevs()
     }
 
+    // Preenche o formulário com os dados do dev selecionado para poder modificá-lo.
     async function updateFormWithDevData(dev) {
-        console.log("Dev is ")
-        console.log(dev)
         setCurrentFormDev(dev)
     }
-
-    /*  try {
-         await api.put("/devs", dev)
-     } catch (e) {
-         console.log("Erro ao enviar requisição de atualização de Dev. Erro: ".concat(e))
-     } */
 
     /**
      * O retorno de html do componente, sempre deverá ser envolvido por um "container",
