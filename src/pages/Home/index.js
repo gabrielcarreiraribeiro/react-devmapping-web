@@ -46,7 +46,8 @@ function Home() {
      * simplesmente atualizá-lo
      */
     async function handlerAddOrUpdateDev(data) {
-
+        console.log("Dados aqui")
+        console.log(data)
         try {
             const response = await api.get(`/searchDevs/${data.github_username}`)
             const update = !!response.data
